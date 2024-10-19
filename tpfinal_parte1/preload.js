@@ -22,7 +22,7 @@ function preload() {
  fuente1 = loadFont('data/fuente2.ttf');
  fuente2 = loadFont('data/fuente1.ttf');
  
-textos = loadStrings('textos.txt');
+//textos = loadStrings('textos.txt');
 listaDeTextos[0] = "Gravity Falls\nMenú principal"; 
 listaDeTextos[1] = "Créditos\nGonzalez Victoria\nTenutto Lucila\nDirector: Alexander Robert Hirsch"; 
 listaDeTextos[2] = "Los habitantes de Gravity Falls comenzaron a desaparecer";

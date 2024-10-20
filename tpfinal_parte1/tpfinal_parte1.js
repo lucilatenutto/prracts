@@ -2,11 +2,10 @@ let pantalla = 0;
 let imagenes = []; 
 let tiempoCambio = 50000; 
 let tiempoUltimoCambio;
-let listaDeTextos = [];
+let textos;
 let fuente1, fuente2;
 let posTextoX, posTextoY; 
 let botones = [];
-
 
 
 function setup() {
@@ -14,9 +13,7 @@ createCanvas(640, 480);
 inicializarBotones();
 dibujarBotones();
   tiempoUltimoCambio = millis();
-
 }
-
 
 function draw() {
 background(50);
@@ -34,6 +31,16 @@ if (millis() - tiempoUltimoCambio > tiempoCambio) {
     for (let i = 0; i < botones[pantalla].length; i++) {
         dibujarBotones(botones[pantalla][i]);
     }
+      if (pantalla < textos.length) {
+    textSize(24);
+    fill(255);
+    text(textos[pantalla], 50, 50);
+  } else {
+    fill(255);
+  }
+    textSize(12);
+  fill(0);
+ 
 }
 
 function inicializarBotones() {
@@ -118,6 +125,10 @@ function mousePressed() {
            pantalla = boton.proximaPantalla;
            }
    }
+    pantalla++;
+  if (pantalla >= textos.length) {
+    pantalla = 0; 
+  }
 }
 function mostrarPantalla(pantalla) {
    for (let i = 0; i < botones[pantalla].length; i++) {
@@ -125,10 +136,5 @@ function mostrarPantalla(pantalla) {
        
        fill(200); //color del botón
        rect(boton.x, boton.y, boton.ancho, boton.alto);
-       
-       fill(boton.colorTexto);
-       textSize(16);
-       textAlign(CENTER, CENTER); 
-       text(boton.texto, boton.x + boton.ancho / 2, boton.y + boton.alto / 2);
    }
 }

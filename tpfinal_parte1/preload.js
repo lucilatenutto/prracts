@@ -22,15 +22,5 @@ function preload() {
  fuente1 = loadFont('data/fuente2.ttf');
  fuente2 = loadFont('data/fuente1.ttf');
  
-//textos = loadStrings('textos.txt');
-listaDeTextos[0] = "Gravity Falls\nMenú principal"; 
-listaDeTextos[1] = "Créditos\nGonzalez Victoria\nTenutto Lucila\nDirector: Alexander Robert Hirsch"; 
-listaDeTextos[2] = "Los habitantes de Gravity Falls comenzaron a desaparecer";
-listaDeTextos[3] = "Viajan al bosque en busca de respuestas";
-listaDeTextos[4] = "Encuentran una pista que los guía a la verdad";
-listaDeTextos[5] = "Investigan solos, el peligro aumenta";
-listaDeTextos[6] = "Encuentran una cueva misteriosa...";
-listaDeTextos[7] = "Lo enfrentan, pero no logran sobrevivir...";
-listaDeTextos[8] = "Piden ayuda a Soos y Wendy...";
-
+  textos = loadStrings('data/gff.txt');
 }

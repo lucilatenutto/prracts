@@ -1,23 +1,148 @@
+//Tenutto Lucila
+//Gonzalez Victoria
+
 let pantalla = 0; 
 let imagenes = []; 
 let tiempoCambio = 50000; 
 let tiempoUltimoCambio;
-let textos;
 let fuente1, fuente2;
-let posTextoX, posTextoY; 
 let botones = [];
+let estadoActual = 0;
+//let song;
+let textos = [];
+let colores = []; // Arreglo para los colores de cada pantalla
+let tamaños = [];
 
 
 function setup() {
 createCanvas(640, 480);
-inicializarBotones();
-dibujarBotones();
-  tiempoUltimoCambio = millis();
+tiempoUltimoCambio = millis();
+//song.setVolume(0.5);
+dibujarBotones(estadoActual);
+
+  botones[0] = [[160, 350, 130, 60], [350, 350, 130, 60]];
+  textos[0] = ["Comenzar", "Creditos"];
+
+  botones[1] = [[250, 400, 130, 60]];
+  textos[1] = ["Volver"];
+
+  botones[2] = [[250, 400, 130, 60]];
+   textos[2] = ["Avanzar"];
+
+  botones[3] = [[250, 400, 130, 60]];
+  textos[3] = ["Avanzar"];
+
+  botones[4] = [[150, 350, 130, 60], [350, 350, 130, 60]];
+  textos[4] = ["Solos", "Pedir ayuda"];
+
+  botones[5] = [[250, 400, 130, 60]];
+  textos[5] = ["Avanzar"];
+
+  botones[6] = [[250, 400, 130, 60]];
+  textos[6] = ["Avanzar"];
+
+  botones[7] = [[250, 400, 130, 60]];
+  textos[7] = ["Reiniciar"];
+
+  botones[8] = [[250, 400, 130, 60]];
+  textos[8] = ["Avanzar"];
+
+  botones[9] = [[250, 400, 130, 60]];
+  textos[9] = ["Avanzar"];
+
+  botones[10] = [[250, 400, 130, 60]];
+  textos[10] = ["Avanzar"];
+
+  botones[11] = [[150, 350, 130, 60], [350, 350, 130, 60]];
+  textos[11] = ["Destruirla", "Usarla"];
+
+  botones[12] = [[250, 400, 130, 60]];
+  textos[12] = ["Avanzar"];
+
+  botones[13] = [[250, 400, 130, 60]];
+  textos[13] = ["Reiniciar"];
+
+  botones[14] = [[250, 400, 130, 60]];
+  textos[14] = ["Avanzar"];
+
+  botones[15] = [[250, 400, 130, 60]];
+  textos[15] = ["Reiniciar"];
+  
+if (estadoActual === 0) { 
+   textFont(fuente2);
+    fill(242, 129, 59);
+    textSize(30);
+    textAlign(CENTER, CENTER);
+  } else if (estadoActual === 1) {
+    tetxFont(fuente1);
+    fill(255);
+    textSize(30);
+    textAlign(CENTER, CENTER);
+  }else if (estadoActual === 2) {
+    tetxFont(fuente1);
+    fill(255);
+    textSize(30);
+    textAlign(CENTER, CENTER);
+  }else if (estadoActual === 3) {
+    tetxFont(fuente1);
+    fill(255);
+    textSize(30);
+    textAlign(CENTER, CENTER);
+  }else if (estadoActual === 4) {
+    tetxFont(fuente1);
+    fill(255);
+    textSize(30);
+    textAlign(CENTER, CENTER);
+  }else if (estadoActual === 5) {
+    tetxFont(fuente1);
+    fill(255);
+    textSize(30);
+    textAlign(CENTER, CENTER);
+  }else if (estadoActual === 6) {
+    tetxFont(fuente1);
+    fill(255);
+    textSize(30);
+    textAlign(CENTER, CENTER);
+  }else if (estadoActual === 7) {
+    tetxFont(fuente1);
+    fill(255);
+    textSize(30);
+    textAlign(CENTER, CENTER);
+  }else if (estadoActual === 8) {
+    tetxFont(fuente1);
+    fill(255);
+    textSize(30);
+    textAlign(CENTER, CENTER);
+  }else if (estadoActual === 9) {
+    tetxFont(fuente1);
+    fill(255);
+    textSize(30);
+    textAlign(CENTER, CENTER);
+  }else if (estadoActual === 10) {
+    tetxFont(fuente1);
+    fill(255);
+    textSize(30);
+    textAlign(CENTER, CENTER);
+  }else if (estadoActual === 11) {
+    tetxFont(fuente1);
+    fill(255);
+    textSize(30);
+    textAlign(CENTER, CENTER);
+  }
+
+
 }
 
 function draw() {
 background(50);
-
+ if (imagenes[estadoActual]) {
+    image(imagenes[estadoActual], 0, 0, width, height);
+  }
+ 
+  if (textosPantalla[estadoActual]) {
+    text(textosPantalla[estadoActual], width / 2, height / 4);
+  }
+  dibujarBotones(estadoActual);
 
 if (millis() - tiempoUltimoCambio > tiempoCambio) {
     pantalla++;
@@ -25,116 +150,27 @@ if (millis() - tiempoUltimoCambio > tiempoCambio) {
       pantalla = 0; 
     }
     tiempoUltimoCambio = millis();
-   
+    
   }
-   image(imagenes[pantalla], 0, 0, width, height);
-    for (let i = 0; i < botones[pantalla].length; i++) {
-        dibujarBotones(botones[pantalla][i]);
-    }
-      if (pantalla < textos.length) {
-    textSize(24);
-    fill(255);
-    text(textos[pantalla], 50, 50);
-  } else {
-    fill(255);
-  }
-    textSize(12);
-  fill(0);
+}
+
  
-}
+function dibujarBotones(indiceEstado) {
+    if (botones[estadoActual] && textos[indiceEstado]) {
+    for (let i = 0; i < botones[indiceEstado].length; i++) {
+      let boton = botones[indiceEstado][i];
+      fill(200);
+      rect(boton[0], boton[1], boton[2], boton[3]);
 
-function inicializarBotones() {
-   botones[0] = [
-       {x: 150, y: 350, ancho: 100, alto: 50, proximaPantalla: 2}, 
-       {x: 350, y: 350, ancho: 100, alto: 50, proximaPantalla: 1}
-   ]; 
-
-   botones[1] = [
-       {x: 250, y: 400, ancho: 100, alto: 50, proximaPantalla: 0}
-   ]; 
-
-   botones[2] = [
-       {x: 150, y: 400, ancho: 100, alto: 50, proximaPantalla: 3}, 
-   ];
-
-   botones[3] = [
-       {x: 250, y: 400, ancho: 100, alto: 50, proximaPantalla: 4}
-   ];
-   
-   botones[4] = [
-       {x:150, y: 350, ancho: 100, alto: 50, proximaPantalla: 5},
-       {x:350, y: 350, ancho: 100, alto: 50, proximaPantalla: 8}  
-   ];
-   
-    botones[5] = [
-      {x: 250, y: 400, ancho: 100, alto: 50, proximaPantalla: 6}
-   ];
-   
-    botones[6] = [
-      {x: 250, y: 400, ancho: 100, alto: 50, proximaPantalla: 7}
-   ];
-   
-    botones[7] = [
-       {x: 250, y: 400, ancho: 100, alto: 50, proximaPantalla: 0}
-   ];
-   
-    botones[8] = [
-      {x: 250, y: 400, ancho: 100, alto: 50, proximaPantalla: 9}
-   ];
-   
-    botones[9] = [
-      {x: 250, y: 400, ancho: 100, alto: 50, proximaPantalla: 10}
-   ];
-   
-     botones[10] = [
-        {x: 250, y: 400, ancho: 100, alto: 50, proximaPantalla: 11}
-   ];
-   
-     botones[11] = [
-       {x:150, y: 350, ancho: 100, alto: 50, proximaPantalla: 12},
-       {x:350, y: 350, ancho: 100, alto: 50, proximaPantalla: 14}
-   ];
-   
-     botones[12] = [
-        {x: 250, y: 400, ancho: 100, alto: 50, proximaPantalla: 13}
-   ];
-   
-     botones[13] = [
-       {x: 250, y: 400, ancho: 100, alto: 50, proximaPantalla: 0}
-   ];
-   
-     botones[14] = [
-       {x: 250, y: 400, ancho: 100, alto: 50, proximaPantalla: 15}
-   ];
-   
-     botones[15] = [
-       {x: 250, y: 400, ancho: 100, alto: 50, proximaPantalla: 0}
-   ];
-}
-function dibujarBotones() {
-   for (let i = 0; i < botones[pantalla].length; i++) {
-       let boton = botones[pantalla][i];
-       rect(boton.x, boton.y, boton.ancho, boton.alto);
-   }
-}
-function mousePressed() {
-   for (let i = 0; i < botones[pantalla].length; i++) {
-       let boton = botones[pantalla][i];
-       if (mouseX > boton.x && mouseX < boton.x + boton.ancho &&
-           mouseY > boton.y && mouseY < boton.y + boton.alto) {
-           pantalla = boton.proximaPantalla;
-           }
-   }
-    pantalla++;
-  if (pantalla >= textos.length) {
-    pantalla = 0; 
+      fill(255);
+      textAlign(CENTER, CENTER);
+      text(textos[indiceEstado][i], boton[0] + boton[2] / 2, boton[1] + boton[3] / 2);
+    }
   }
 }
-function mostrarPantalla(pantalla) {
-   for (let i = 0; i < botones[pantalla].length; i++) {
-       let boton = botones[pantalla][i];
-       
-       fill(200); //color del botón
-       rect(boton.x, boton.y, boton.ancho, boton.alto);
-   }
-}
+
+//function keyPressed () {
+ // if (key === 'm' && song.isPlaying()) {
+   //   song.pause();
+    //} else {
+     // song.play();

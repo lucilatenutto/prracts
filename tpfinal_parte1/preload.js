@@ -1,6 +1,7 @@
 function preload() {
   
-  // miSonido = loadSound('data/musiquita.mp3');
+  // soundFormats ('mp3', 'ogg');
+  //song = loadSound ('/data/musica.mp3');
   
    imagenes[0] = loadImage('data/principal2.jpg'); //inicio
    imagenes[1] = loadImage('data/principal1.jpg'); //creditos
@@ -22,5 +23,4 @@ function preload() {
  fuente1 = loadFont('data/fuente2.ttf');
  fuente2 = loadFont('data/fuente1.ttf');
  
-  textos = loadStrings('data/gff.txt');
 }

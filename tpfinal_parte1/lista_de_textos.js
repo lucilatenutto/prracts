@@ -1,7 +1,7 @@
 let textosPantalla = [
 "\nGravity Falls\nMenú principal",
 "\nCreditos\nGonzalez Victoria\nTenutto Lucila",
-"\nLos habitantes de Gravity Falls comenzaron a desaparecer",
+"\nLos habitantes de Gravity Falls\ncomenzaron a desaparecer",
 "\nViajan al bosque en busca de respuestas",
 "\nEncuentran una pista que los guía a la verdad\nes hora de decidir si continuar solos\no pedir ayuda",
 "\nInvestigan solos, el peligro aumenta",

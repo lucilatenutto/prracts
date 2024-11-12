@@ -8,18 +8,20 @@ let tiempoUltimoCambio;
 let fuente1, fuente2;
 let botones = [];
 let estadoActual = 0;
-//let song;
+let song = 0;
 let textos = [];
-let colores = []; // Arreglo para los colores de cada pantalla
+let colores = [];
 let tamaños = [];
+let posicionesTexto = [];
+let coloresTexto = [];
 
 
 function setup() {
 createCanvas(640, 480);
 tiempoUltimoCambio = millis();
-//song.setVolume(0.5);
 dibujarBotones(estadoActual);
-
+generarEstiloTexto(pantalla, color(random(255), random(255), random(255)), random(50, width - 50), random(50, height - 100));
+  
   botones[0] = [[160, 350, 130, 60], [350, 350, 130, 60]];
   textos[0] = ["Comenzar", "Creditos"];
 
@@ -71,11 +73,11 @@ dibujarBotones(estadoActual);
 if (estadoActual === 0) { 
    textFont(fuente2);
     fill(242, 129, 59);
-    textSize(30);
+    textSize(40);
     textAlign(CENTER, CENTER);
   } else if (estadoActual === 1) {
     tetxFont(fuente1);
-    fill(255);
+    fill(0);
     textSize(30);
     textAlign(CENTER, CENTER);
   }else if (estadoActual === 2) {
@@ -135,6 +137,10 @@ if (estadoActual === 0) {
 
 function draw() {
 background(50);
+ fill(coloresTexto[pantalla]);
+  let pos = posicionesTexto[pantalla];
+  text(textosPantalla[pantalla], pos.x, pos.y);
+ 
  if (imagenes[estadoActual]) {
     image(imagenes[estadoActual], 0, 0, width, height);
   }
@@ -149,9 +155,19 @@ if (millis() - tiempoUltimoCambio > tiempoCambio) {
     if (pantalla >= imagenes.length) {
       pantalla = 0; 
     }
+     generarEstiloTexto( pantalla, 
+      color(random(255), random(255), random(255)), 
+      random(50, width - 50), 
+      random(50, height - 100)
+    );
     tiempoUltimoCambio = millis();
     
   }
+}
+
+function generarEstiloTexto(indicePantalla, nuevoColor, posX, posY) {
+  coloresTexto[indicePantalla] = nuevoColor;
+  posicionesTexto[indicePantalla] = createVector(posX, posY);
 }
 
  
@@ -169,8 +185,10 @@ function dibujarBotones(indiceEstado) {
   }
 }
 
-//function keyPressed () {
- // if (key === 'm' && song.isPlaying()) {
-   //   song.pause();
-    //} else {
-     // song.play();
+function keyPressed () {
+  if (key === 'm' && song.isPlaying()) {
+    song.pause();
+  } else {
+    song.play();
+  }
+}

@@ -1,11 +1,9 @@
 function mousePressed() {
 
- // Detectar si se hizo clic en algún botón
   for (let i = 0; i < botones[estadoActual].length; i++) {
     let boton = botones[estadoActual][i];
     if (mouseX > boton[0] && mouseX < boton[0] + boton[2] &&
         mouseY > boton[1] && mouseY < boton[1] + boton[3]) {
-      // Cambiar estado basado en el botón presionado
       if (estadoActual === 0 && i === 1) {
         estadoActual = 1; 
       } else if (estadoActual === 0 && i === 0) {

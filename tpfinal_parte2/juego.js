@@ -14,13 +14,14 @@ class Juego {
       this.bill.lanzarLaseres();
 
       for (let obj of this.bill.objetos) {
-        if (this.dipper.toca(obj)) {
+        if (this.dipper.tocaCirculo(obj)) {
           this.objetosRecolectados++;
           this.bill.removerObjeto(obj);
         }
       }
       for (let laser of this.bill.laseres) {
-        if (this.dipper.toca(laser)) {
+        if (this.dipper.tocaRectangulo(laser) && !laser.toco) {
+          laser.toco = true;
           this.vidas--;
           this.bill.removerLaser(laser);
           if (this.vidas <= 0) {

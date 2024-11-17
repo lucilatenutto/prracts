@@ -1,11 +1,13 @@
-//Tenutto Lucila
+//Tenutto Lucila  93568/8
 //Gonzalez Victoria
 
 let pantalla = 0; 
 let imagenes = []; 
 let tiempoCambio = 50000; 
 let tiempoUltimoCambio;
-let fuente1, fuente2;
+let fuente2;
+let colorX;
+let colorY;
 let botones = [];
 let estadoActual = 0;
 let song = 0;
@@ -21,6 +23,7 @@ createCanvas(640, 480);
 tiempoUltimoCambio = millis();
 dibujarBotones(estadoActual);
 generarEstiloTexto(pantalla, color(random(255), random(255), random(255)), random(50, width - 50), random(50, height - 100));
+
   
   botones[0] = [[160, 350, 130, 60], [350, 350, 130, 60]];
   textos[0] = ["Comenzar", "Creditos"];
@@ -75,71 +78,14 @@ if (estadoActual === 0) {
     fill(242, 129, 59);
     textSize(40);
     textAlign(CENTER, CENTER);
-  } else if (estadoActual === 1) {
-    tetxFont(fuente1);
-    fill(0);
-    textSize(30);
-    textAlign(CENTER, CENTER);
-  }else if (estadoActual === 2) {
-    tetxFont(fuente1);
-    fill(255);
-    textSize(30);
-    textAlign(CENTER, CENTER);
-  }else if (estadoActual === 3) {
-    tetxFont(fuente1);
-    fill(255);
-    textSize(30);
-    textAlign(CENTER, CENTER);
-  }else if (estadoActual === 4) {
-    tetxFont(fuente1);
-    fill(255);
-    textSize(30);
-    textAlign(CENTER, CENTER);
-  }else if (estadoActual === 5) {
-    tetxFont(fuente1);
-    fill(255);
-    textSize(30);
-    textAlign(CENTER, CENTER);
-  }else if (estadoActual === 6) {
-    tetxFont(fuente1);
-    fill(255);
-    textSize(30);
-    textAlign(CENTER, CENTER);
-  }else if (estadoActual === 7) {
-    tetxFont(fuente1);
-    fill(255);
-    textSize(30);
-    textAlign(CENTER, CENTER);
-  }else if (estadoActual === 8) {
-    tetxFont(fuente1);
-    fill(255);
-    textSize(30);
-    textAlign(CENTER, CENTER);
-  }else if (estadoActual === 9) {
-    tetxFont(fuente1);
-    fill(255);
-    textSize(30);
-    textAlign(CENTER, CENTER);
-  }else if (estadoActual === 10) {
-    tetxFont(fuente1);
-    fill(255);
-    textSize(30);
-    textAlign(CENTER, CENTER);
-  }else if (estadoActual === 11) {
-    tetxFont(fuente1);
-    fill(255);
-    textSize(30);
-    textAlign(CENTER, CENTER);
-  }
-
-
+}
 }
 
 function draw() {
-background(50);
+ background(50);
  fill(coloresTexto[pantalla]);
-  let pos = posicionesTexto[pantalla];
-  text(textosPantalla[pantalla], pos.x, pos.y);
+ let pos = posicionesTexto[pantalla];
+ text(textosPantalla[pantalla], pos.x, pos.y);
  
  if (imagenes[estadoActual]) {
     image(imagenes[estadoActual], 0, 0, width, height);

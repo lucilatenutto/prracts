@@ -20,7 +20,6 @@ function preload() {
    imagenes[14] = loadImage('data/maquinatiempo2.jpg'); 
    imagenes[15] = loadImage('data/tds2.jpg');
 
- fuente1 = loadFont('data/fuente2.ttf');
  fuente2 = loadFont('data/fuente1.ttf');
  
 }

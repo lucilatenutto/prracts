@@ -11,7 +11,9 @@ function setup() {
 }
 
 function draw() {
+  if (juego.estado === "jugando") {
   image(fondo, 0, 0, width, height); 
+  }
   juego.actualizar();
   juego.mostrar();
 }

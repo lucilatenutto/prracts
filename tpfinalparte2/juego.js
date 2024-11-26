@@ -4,11 +4,13 @@ class Juego {
     this.bill = new Bill();
     this.objetosRecolectados = 0;
     this.vidas = 3;
-    this.juegoTerminado = false;
+   
+    //this.juegoTerminado = false;
+     this.estado = "jugando";
   }
 
   actualizar() {
-    if (!this.juegoTerminado) {
+      if (this.estado === "jugando") {
       this.dipper.mover();
       this.bill.lanzarObjetos();
       this.bill.lanzarLaseres();
@@ -25,18 +27,19 @@ class Juego {
           this.vidas--;
           this.bill.removerLaser(laser);
           if (this.vidas <= 0) {
-            this.juegoTerminado = true;
+           this.estado = "derrota";
           }
         }
       }
 
       if (this.objetosRecolectados >= 15) {
-        this.juegoTerminado = true;
+       this.estado = "victoria";
       }
     }
   }
 
   mostrar() {
+    if (this.estado === "jugando") {
     this.dipper.mostrar();
     this.bill.mostrar();
     fill(255);
@@ -44,10 +47,24 @@ class Juego {
     text(`objetos recolectados: ${this.objetosRecolectados}`, 10, 20);
     text(`vidas: ${this.vidas}`, 10, 40);
 
-    if (this.juegoTerminado) {
-      textSize(32);
-      fill(255, 0, 0);
-      text(this.vidas > 0 ? "ganaste" : "perdiste", width / 2 - 80, height / 2);
+     } else if (this.estado === "victoria") {
+      this.pantallaVictoria();
+    } else if (this.estado === "derrota") {
+      this.pantallaDerrota();
     }
+  }
+   pantallaVictoria() {
+    background(0, 255, 0);
+    fill(255);
+    textSize(32);
+    textAlign(CENTER, CENTER);
+    text("GANASTE!! :)", width / 2, height / 2);
+  }
+  pantallaDerrota() {
+    background(255, 0, 0);
+    fill(255);
+    textSize(32);
+    textAlign(CENTER, CENTER);
+    text("PERDISTE!! :(", width / 2, height / 2);
   }
 }

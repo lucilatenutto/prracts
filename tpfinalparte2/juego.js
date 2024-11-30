@@ -4,9 +4,8 @@ class Juego {
     this.bill = new Bill();
     this.objetosRecolectados = 0;
     this.vidas = 3;
-   
-    //this.juegoTerminado = false;
-     this.estado = "jugando";
+    this.estado = "jugando";
+    this.estado = "inicial";
   }
 
   actualizar() {
@@ -39,7 +38,13 @@ class Juego {
   }
 
   mostrar() {
-    if (this.estado === "jugando") {
+    if (this.estado === "inicial") {
+      this.mostrarInicio();
+    } else if (this.estado === "creditos") {
+      this.mostrarCreditos();
+    } else if (this.estado === "instrucciones") {
+      this.mostrarInstrucciones();
+    } else if (this.estado === "jugando") {
     this.dipper.mostrar();
     this.bill.mostrar();
     fill(255);
@@ -48,23 +53,60 @@ class Juego {
     text(`vidas: ${this.vidas}`, 10, 40);
 
      } else if (this.estado === "victoria") {
-      this.pantallaVictoria();
+      image(imgVictoria, 0, 0, width, height);
+    fill(255);
+    textSize(60);
+    textAlign(CENTER, CENTER);
+    text("ganaste! :)", width / 2, height - 50);
+    fill(9, 77, 13);
+    rect(width - 150, height - 60, 130, 40, 10);
+    fill(255);
+    textSize(25);
+    textAlign(CENTER, CENTER);
+    text("reiniciar", width - 85, height - 40);
     } else if (this.estado === "derrota") {
-      this.pantallaDerrota();
+    image(imgDerrota, 0, 0, width, height);
+    fill(255, 0, 0);
+    textSize(60);
+    textAlign(CENTER, CENTER);
+    text("perdiste! :(", width / 2, height - 50);
+    fill(9, 77, 13); 
+    rect(width - 150, height - 60, 130, 40, 10);
+    fill(255);
+    textSize(25);
+    textAlign(CENTER, CENTER);
+    text("reiniciar", width - 85, height - 40);
     }
   }
-   pantallaVictoria() {
-    background(0, 255, 0);
-    fill(255);
-    textSize(32);
-    textAlign(CENTER, CENTER);
-    text("GANASTE!! :)", width / 2, height / 2);
+
+
+ mostrarInicio() {
+    image(imgInicio, 0, 0, width, height); 
+    this.mostrarBoton(width / 2 - 75, height / 2 - 40, 150, 50, "Comenzar");
+    this.mostrarBoton(width / 2 - 75, height / 2 + 20, 150, 50, "Créditos");
+    this.mostrarBoton(width / 2 - 75, height / 2 + 80, 150, 50, "Instrucciones");
   }
-  pantallaDerrota() {
-    background(255, 0, 0);
+
+  mostrarCreditos() {
+    image(imgCreditos, 0, 0, width, height); 
+    this.mostrarBoton(width - 150, height - 60, 130, 40, "Volver");
+  }
+
+  mostrarInstrucciones() {
+    image(imgInstrucciones, 0, 0, width, height); 
+    this.mostrarBoton(width - 150, height - 60, 130, 40, "Siguiente");
+  }
+
+  mostrarBoton(x, y, ancho, alto, texto) {
+    fill(50, 50, 200); 
+    rect(x, y, ancho, alto, 10); 
     fill(255);
-    textSize(32);
+    textSize(16);
     textAlign(CENTER, CENTER);
-    text("PERDISTE!! :(", width / 2, height / 2);
+    text(texto, x + ancho / 2, y + alto / 2);
+  }
+
+  mostrarBotonReiniciar(texto) {
+    this.mostrarBoton(width - 150, height - 60, 130, 40, texto);
   }
 }

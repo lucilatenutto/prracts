@@ -31,13 +31,7 @@ function mousePressed() {
   let botonY = height - 60;
   let botonAncho = 130;
   let botonAlto = 40;
-
-  if (
-    mouseX > botonX &&
-    mouseX < botonX + botonAncho &&
-    mouseY > botonY &&
-    mouseY < botonY + botonAlto
-  ) {
+  
    if (juego.estado === "inicial") {
     if (mouseX > width / 2 - 75 && mouseX < width / 2 + 75 && mouseY > height / 2 - 40 && mouseY < height / 2 + 10) {
       juego.estado = "jugando";
@@ -58,4 +52,4 @@ function mousePressed() {
     }
   }
 }
-  }
+  

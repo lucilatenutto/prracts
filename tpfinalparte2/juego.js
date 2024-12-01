@@ -98,10 +98,10 @@ class Juego {
   }
 
   mostrarBoton(x, y, ancho, alto, texto) {
-    fill(50, 50, 200); 
+    fill(9, 77, 13); 
     rect(x, y, ancho, alto, 10); 
     fill(255);
-    textSize(16);
+    textSize(25);
     textAlign(CENTER, CENTER);
     text(texto, x + ancho / 2, y + alto / 2);
   }

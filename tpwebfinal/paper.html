@@ -24,17 +24,38 @@
         margin: 0 auto; 
         max-width: 800px; 
         padding: 20px; 
-        background-color: rgb(0, 0, 0);
-        -webkit-text-fill-color: rgb(194, 170, 66);
+        background-color: rgb(173, 72, 13);
+        -webkit-text-fill-color: rgb(0, 0, 0);
         text-align: left; 
       }
       .paper.container {
         margin: 20px auto;
         max-width: 800px; 
         padding: 20px; 
-        background-color: #290b70; 
+        background-color: #721d2b; 
         -webkit-text-fill-color: rgb(194, 170, 66);
         border-radius: 8px; 
+      }
+    </style>
+  </head>
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Press+Start+2P&family=Special+Elite&family=Nosifer&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      h1, h2 {
+        font-family: 'Creepster', cursive;
+        color: #FFD700; 
+      }
+      h3, h4 {
+        font-family: 'Special Elite', monospace;
+        color: #8A2BE2; 
+      }
+      p {
+        font-family: 'Orbitron', sans-serif;
+        color: #FFFFFF;
+      }
+      button, a {
+        font-family: 'Press Start 2P', cursive;
+        color: #00FFFF;
       }
     </style>
   </head>
@@ -53,19 +74,49 @@
       <h3>Bill como la Gran Amenaza</h3>
       <p>"El carismático y peligroso Bill Cipher regresa como el antagonista principal. Su personalidad impredecible y su naturaleza burlona inspiran los desafíos del juego, donde lanza láseres y pone trampas para detener a Dipper."</p>
       <img src="imgs/billweb.jpg" alt="bill">
-      <h2>Referencias al Diario</h2>
+      <h3>Referencias al Diario</h3>
       <p> "Los secretos del Diario juegan un rol fundamental en la narrativa del juego, al igual que en la serie. Resolver los misterios escondidos en los objetos recolectados y seguir las pistas es clave para desentrañar la trama."</p>
       <img src="imgs/diariosweb.jpg" alt="diarios">
     </div>
 
     <div class="paper container sm-3 col margin">
-      <h1>Some Fresh Title</h1>
-      <p>This is where some content would go.</p>
+      <h1>El detrás de la aventura</h1>
+      <h3>Concepto inicial:</h3>
+      <h4>Inspiración:</h4>
+       <p>Gravity Falls no solo inspiró la narrativa y los personajes del juego, sino que también nos motivó a explorar la interacción entre el misterio, el caos y la diversión. Creemos que el espíritu de la serie, con su mezcla única de aventura, humor y oscuridad, se ve reflejado en cada aspecto del juego, ofreciendo a los jugadores una experiencia llena de sorpresas y emoción.</p>
+      <h4>Objetivo:</h4>
+       <p>Crear una experiencia interactiva que capture la esencia de la serie.</p>
+      <h3>Desarrollo del videojuego:</h3>
+      <h4>Herramientas utilizadas:</h4> 
+        <p>p5.js para el desarrollo del juego, diseño de personajes, y creación de pantallas.
+        Desafíos: Crear una narrativa coherente y atractiva con finales múltiples.</p>
+       <h3>Tratamiento artístico:</h3>
+        <p>Para diseño visual nos basamos en el estilo gráfico de Gravity Falls, con colores vibrantes y texturas misteriosas.</p>
+
+       <h4>Diseño gráfico:</h4> 
+        <p>Gráficos interactivos: Incluye una línea de tiempo interactiva que muestre las etapas del desarrollo (con clics o scroll).</p>
+        <h4>Elección de la  tipografía:</h4>
+        <p>Creepster: Tiene un diseño espeluznante y misterioso, perfecto para temas de suspenso y terror.</p>
+        
+       
     </div>
 
     <div class="paper container sm-3 col margin">
       <h1>Some Fresh Title</h1>
       <p>This is where some content would go.</p>
+    </div>
+   
+    <div class="row flex-spaces child-borders">
+      <label class="paper-btn margin" for="modal-1">Jugá!!</label>
+    </div>
+    <input class="modal-state" id="modal-1" type="checkbox">
+    <div class="modal">
+      <label class="modal-bg" for="modal-1"></label>
+      <div class="modal-body">
+        <label class="btn-close" for="modal-1">X</label>
+        <iframe src="juego/tpfinalparte2/index.html" frameborder="0" width="640" height="480"></iframe>
+        <label for="modal-1">Diviértete!!</label>
+      </div>
     </div>
   </body>
   

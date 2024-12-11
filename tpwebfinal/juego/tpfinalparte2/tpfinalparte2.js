@@ -1,6 +1,6 @@
 //Lucila Tenutto 93568/8
 //Gonzalez Victoria 86848/2
-//link al video: https://www.youtube.com/watch?v=M4Go6PD-rDs
+
 
 let juego;
 let fondo;
@@ -12,8 +12,6 @@ let reglas = [];
 let posicionesTexto = [];
 
 function preload() {
-  soundFormats ('mp3', 'ogg');
-  song = loadSound ('/data/musica.mp3');
   fondo = loadImage('data/fondo.jpeg');
   fuente1 = loadFont('data/fuente1.ttf');
   imgDerrota = loadImage('data/bill1.jpeg');
@@ -26,7 +24,6 @@ function preload() {
 
 function setup() {
   createCanvas(640, 480);
-  song.setVolume(0.5);
   textFont (fuente1);
   juego = new Juego();
   listaTextos();
@@ -39,7 +36,6 @@ function draw() {
   }
   juego.actualizar();
   juego.mostrar();
-  juego.mostrarBotonMusica ()
 }
   
 function mousePressed() {
@@ -73,14 +69,9 @@ function mousePressed() {
     }
   }
 
-  if ( diametro < radio ) {
-    if (song.isPlaying()) {
-   song.pause();
-   } else {
-   song.play();
-   }
+ 
   }
-}
+
    
 function listaTextos () {
   texto [0] = "Gravity Falls: Un viaje al Raromagedón"; //titulo
